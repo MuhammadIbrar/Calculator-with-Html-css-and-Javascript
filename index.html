@@ -1,0 +1,103 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="css/style.css">
+<script language ="JavaScript">
+
+function addChar(input, character) {
+	if(input.value == null || input.value == "0")
+		input.value = character
+	else
+		input.value += character
+}
+
+
+function sqrt(form) {
+	form.display.value = Math.sqrt(form.display.value);
+}
+
+
+function fact(){
+var i, no, fact;
+fact=1;
+no=Number(document.getElementById("d").value);
+for(i=1; i<=no; i++)  
+{
+fact= fact*i;
+}  
+document.getElementById("answer").value= fact;
+}
+
+
+
+
+function compute(form) {
+	form.display.value = eval(form.display.value)
+}
+
+function ln(form) {
+	form.display.value = Math.log(form.display.value);
+}
+
+function square(form) {
+	form.display.value = eval(form.display.value) * eval(form.display.value)
+}
+
+function checkNum(str) {
+	for (var i = 0; i < str.length; i++) {
+		var ch = str.substring(i, i+1)
+		if (ch < "0" || ch > "9") {
+			if (ch != "/" && ch != "*" && ch != "+" && ch != "-" && ch != "."
+				&& ch != "(" && ch!= ")") {
+				alert("invalid entry!")
+				return false
+				}
+			}
+		}
+		return true
+}
+</script>
+</head>
+<body>
+<h2>Calculator</h2>
+<FORM NAME="sci-calc">
+<div class="box">
+	<div class="display"><input type="text" name="display" readonly size="15" id="d"></div>
+
+
+	<div class="keys">
+
+		<p><input type="button" class="button black" value="sqr" onclick="if (checkNum(this.form.display.value)) { square(this.form) }">
+			<input type="button" class="button black" value="ln" onclick="if (checkNum(this.form.display.value)) { ln(this.form) }">
+			<input type="button" class="button black" value="sqrt" onclick="if (checkNum(this.form.display.value)) { sqrt(this.form) }">
+			<input type="button" class="button pink" value="/" onclick="addChar(this.form.display, '/')"></p>
+
+
+		<p><input type="button" class="button black" value="7" onclick="addChar(this.form.display, '7')">
+			<input type="button" class="button black" value="8" onclick="addChar(this.form.display, '8')">
+			<input type="button" class="button black" value="9" onclick="addChar(this.form.display, '9')">
+			<input type="button" class="button pink" value="*" onclick="addChar(this.form.display, '*')"></p>
+
+
+		<p><input type="button" class="button black" value="4" onclick="addChar(this.form.display, '4')">
+			<input type="button" class="button black" value="5" onclick="addChar(this.form.display, '5')">
+			<input type="button" class="button black" value="6" onclick="addChar(this.form.display, '6')">
+			<input type="button" class="button pink" value="-" onclick="addChar(this.form.display, '-')"></p>
+
+		<p><input type="button" class="button black" value="1" onclick="addChar(this.form.display, '1')">
+			<input type="button" class="button black" value="2" onclick="addChar(this.form.display, '2')">
+			<input type="button" class="button black" value="3" onclick="addChar(this.form.display, '3')">
+			<input type="button" class="button pink" value="+" onclick="addChar(this.form.display, '+')"></p>
+
+		<p><input type="button" class="button black" value="0" onclick="addChar(this.form.display, '0')">
+			<input type="button" class="button black" value="." onclick="addChar(this.form.display, '.')">
+			<input type="button" class="button black" value="C" onclick="this.form.display.value=0">
+			<input type="button" class="button orange" value="=" onclick="if (checkNum(this.form.display.value)) { compute(this.form) }"></p>
+
+
+	</div>
+</div>
+</FORM>
+</body>
+
+</html>
